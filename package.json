@@ -1,6 +1,6 @@
 {
   "name": "pagseguro-encryptcard-reactjs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Uma biblioteca para usar PagSeguro em aplicações React Js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

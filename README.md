@@ -1,5 +1,5 @@
-### Hook PagSeguro para React
-Este hook permite que você integre facilmente o serviço de criptografia de cartão do PagSeguro em seu aplicativo React.
+### PagSeguro Hook for React
+This hook allows you to easily integrate the PagSeguro card encryption service into your React application.
 
 ## Instalação
 ```sh
@@ -11,18 +11,18 @@ npm i pagseguro-encryptcard-reactjs
 ```
 
 ## Uso
-Primeiramente, importe as funções usePagSeguro e encryptCard:
+First, import the usePagSeguro and encryptCard functions::
 
 ```sh
 import { usePagSeguro, encryptCard } from './usePagSeguro'
 ```
-Em seguida, no seu componente, chame o hook usePagSeguro para obter uma instância do objeto PagSeguro:
+Next, in your component, call the usePagSeguro hook to get an instance of the PagSeguro object:
 
 ```sh
 const pagseguro = usePagSeguro()
 ```
 
-Você pode então usar esta instância para criptografar os detalhes do cartão usando a função encryptCard:
+You can then use this instance to encrypt card details using the encryptCard function:
 
 ```sh
 const cardDetails = {
@@ -39,13 +39,13 @@ const cardDetails = {
 ```sh
 const result = encryptCard(pagseguro, cardDetails)
 ```
-A função encryptCard retorna um objeto com as seguintes propriedades:
+The encryptCard function returns an object with the following properties:
 
-| Objeto | Propriedades |
+| Object | Properties |
 | ------ | ------ |
-| encryptedCard | Os detalhes do cartão criptografados como uma string |
-| errors | Um array de strings representando quaisquer erros que ocorreram durante a criptografia. |
-| hasError | Um booleano indicando se ocorreram erros durante a criptografia. |
+| encryptedCard | The encrypted card details as a string |
+| errors | An array of strings representing any errors that occurred during encryption. |
+| hasError | A boolean indicating whether any errors occurred during encryption. |
 
 
 ## Exemplo
@@ -57,24 +57,27 @@ import { usePagSeguro, encryptCard } from './usePagSeguro'
 function MeuComponente() {
   const pagseguro = usePagSeguro()
 
-  useEffect(() => {
-    if (pagseguro) {
-      const cardDetails = {
-        publicKey: 'sua-chave-publica',
-        holder: 'João da Silva',
-        number: '4111111111111111',
-        expMonth: '12',
-        expYear: '2022',
-        securityCode: '123'
-      }
+    const functionEncryCard = async () => {
+      if (pagseguro) {
+        const cardDetails = {
+            publicKey: 'your-public-key',
+            holder: 'John Doe',
+            number: '4111111111111111',
+            expMonth: '12',
+            expYear: '2022',
+            securityCode: '123'
+          }
 
-      const result = encryptCard(pagseguro, cardDetails)
-
-      console.log(result)
+        const result = await encryptCard(pagseguro, cardDetails)
+        console.log('result', result)
     }
+  }
+
+  useEffect(() => {
+    functionEncryCard()
   }, [pagseguro])
 
   return <div>Meu Componente</div>
 }
 ```
-Por favor, note que a publicKey deve ser substituída pela sua chave pública real fornecida pelo PagSeguro.
+Please note that the publicKey should be replaced with your actual public key provided by PagSeguro.
