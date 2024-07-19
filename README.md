@@ -1,7 +1,8 @@
 ### PagSeguro Hook for React
 This hook allows you to easily integrate the PagSeguro card encryption service into your React application.
 
-## Instalação
+## Installation
+
 ```sh
 yarn add pagseguro-encryptcard-reactjs
 ```
@@ -10,7 +11,8 @@ ou
 npm i pagseguro-encryptcard-reactjs
 ```
 
-## Uso
+## Usage
+
 First, import the usePagSeguro and encryptCard functions::
 
 ```sh
@@ -48,28 +50,28 @@ The encryptCard function returns an object with the following properties:
 | hasError | A boolean indicating whether any errors occurred during encryption. |
 
 
-## Exemplo
+## Example
 
 ```sh
 import React from 'react'
 import { usePagSeguro, encryptCard } from './usePagSeguro'
 
-function MeuComponente() {
+function MyComponent() {
   const pagseguro = usePagSeguro()
 
-    const functionEncryCard = async () => {
-      if (pagseguro) {
-        const cardDetails = {
-            publicKey: 'your-public-key',
-            holder: 'John Doe',
-            number: '4111111111111111',
-            expMonth: '12',
-            expYear: '2022',
-            securityCode: '123'
-          }
+  const functionEncryCard = async () => {
+    if (pagseguro) {
+      const cardDetails = {
+          publicKey: 'your-public-key',
+          holder: 'John Doe',
+          number: '4111111111111111',
+          expMonth: '12',
+          expYear: '2022',
+          securityCode: '123'
+      }
 
-        const result = await encryptCard(pagseguro, cardDetails)
-        console.log('result', result)
+      const result = await encryptCard(pagseguro, cardDetails)
+      console.log('result', result)
     }
   }
 
@@ -77,7 +79,7 @@ function MeuComponente() {
     functionEncryCard()
   }, [pagseguro])
 
-  return <div>Meu Componente</div>
+  return <div>My Component</div>
 }
 ```
 Please note that the publicKey should be replaced with your actual public key provided by PagSeguro.
