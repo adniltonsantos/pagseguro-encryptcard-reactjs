@@ -4,6 +4,10 @@
   "description": "Uma biblioteca para usar PagSeguro em aplicações React Js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adniltonsantos/pagseguro-encryptcard-reactjs"
+  },
   "scripts": {
     "build": "tsc"
   },
